@@ -31,6 +31,13 @@ function get_info(){
 	if [ "$app_aaa" = "" ]; then                                              
 		app_aaa="AAA"
 	fi
+    echo -e "\033[33;1m!!!!信息确认!!!!\033[0m:"
+	echo ""
+	echo -e "端口号: [\033[32;1m$lea_port\033[0m]"
+	echo -e "app.secret: [\033[32;1m$app_aaa\033[0m]"
+	echo ""
+    echo -e "\033[33;1m任意键确认，Ctrl+C放弃\033[0m"
+		char=`get_char`
 }
 #安装mongodb
 function set_mongodb(){
