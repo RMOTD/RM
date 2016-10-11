@@ -37,7 +37,9 @@ function get_info(){
 	echo -e "app.secret: [\033[32;1m$app_aaa\033[0m]"
 	echo ""
     echo -e "\033[33;1m任意键确认，Ctrl+C放弃\033[0m"
-		char=`get_char`
+	char=`get_char`
+    cur_dir=`pwd`
+    cd $cur_dir
 }
 #安装mongodb
 function set_mongodb(){

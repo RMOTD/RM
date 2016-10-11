@@ -128,7 +128,6 @@ function pre_install(){
 	echo ""
     echo -e "\033[33;1many key to confirm，or Ctrl+C to cancel\033[0m"
 	char=`get_char`
-	#获取当前路径，为能定位到Strongswan下载解压文件夹做准备
     cur_dir=`pwd`
     cd $cur_dir
 echo -e "\033[32;1mpreinstallation complete\033[0m"	
