@@ -45,7 +45,7 @@ function get_info(){
 	echo -e "端口号: [\033[32;1m$lea_port\033[0m]"
 	echo -e "app.secret: [\033[32;1m$app_aaa\033[0m]"
 	echo ""
-    echo -e "\033[33;1m任意键确认，Ctrl+C放弃\033[0m"
+    echo -e "\033[33;1m任意键确认，Ctrl+C..放弃\033[0m"
 	char=`get_char`
 
 }
