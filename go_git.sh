@@ -12,7 +12,7 @@ fi
 echo -e "\033[32;1mroot用户确认成功\033[0m"
 }
 
-#启用git
+#启用git                         #以可以使用 go get 安装
 function set_git(){
 	yum -y install git
 }
