@@ -13,7 +13,7 @@ echo -e "\033[32;1mroot用户确认成功\033[0m"
 }
 
 #启用ifconfig和netstat两个命令
-function snet_tools(){
+function net_tools(){
 	yum install net-tools
 }
 
@@ -43,3 +43,12 @@ function set_bashrc(){
 	sed -i "1iPS1='\[\e[33;1m\][\u@\H \A \w]\[\e[0;1m\]# '" /etc/bashrc
 	source /etc/bashrc
 }
+
+#主程序
+
+root_only
+net_tools
+pre_install
+ssh_port
+time_zone
+set_bashrc
