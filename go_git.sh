@@ -26,13 +26,13 @@ function set_go(){
 	mkdir /usr/local/gopackage
 	sed -i 's?export GOROOT=/usr/local/go??g' /etc/profile                                
 	sed -i '/^\s*$/d' /etc/profile                                                           
-	sed -i '$a\export GOROOT=/usr/local/go' /etc/profile                                   
+	sed -i '$a\export GOROOT=/usr/local/go' /etc/profile                      #添加Go路径到环境变量                  
 	sed -i 's?export GOPATH=/usr/local/gopackage??g' /etc/profile                                
 	sed -i '/^\s*$/d' /etc/profile                                                           
-	sed -i '$a\export GOPATH=/usr/local/gopackage' /etc/profile 	
+	sed -i '$a\export GOPATH=/usr/local/gopackage' /etc/profile 	          #添加Go安装文件路径到环境变量
 	sed -i 's?export PATH=$PATH:$GOROOT/bin:$GOPATH/bin??g' /etc/profile                                
 	sed -i '/^\s*$/d' /etc/profile                                                           
-	sed -i '$a\export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' /etc/profile
+	sed -i '$a\export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' /etc/profile        #添加Go和Gopackage的bin到环境变量
 	echo -e "\033[32;1m 输入 source /etc/profile 生效 \033[0m" 
 }
 
