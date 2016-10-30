@@ -22,7 +22,7 @@ function set_go(){
 	wget https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
 	tar -zxvf go1.7.1.linux-amd64.tar.gz
 	cp -rf go /usr/local/go
-	rm -rf /root/go
+	rm -rf /root/go*
 	mkdir /usr/local/gopackage
 	sed -i 's?export GOROOT=/usr/local/go??g' /etc/profile                                
 	sed -i '/^\s*$/d' /etc/profile                                                           
