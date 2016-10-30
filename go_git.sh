@@ -33,7 +33,7 @@ function set_go(){
 	sed -i 's?export PATH=$PATH:$GOROOT/bin:$GOPATH/bin??g' /etc/profile                                
 	sed -i '/^\s*$/d' /etc/profile                                                           
 	sed -i '$a\export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' /etc/profile
-	source /etc/profile
+	echo -e "\033[32;1m 输入 source /etc/profile 生效 \033[0m" 
 }
 
 root_only

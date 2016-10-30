@@ -140,7 +140,7 @@ function set_bashrc(){
 	# vim:ts=4:sw=4
 	
 	EOF
-	echo -e "输入 source /etc/bashrc 生效"
+	echo -e "\033[32;1m 输入 source /etc/bashrc 生效 \033[0m" 
 }
 
 #主程序
