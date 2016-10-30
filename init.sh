@@ -14,7 +14,7 @@ echo -e "\033[32;1mroot用户确认成功\033[0m"
 
 #启用ifconfig和netstat两个命令
 function net_tools(){
-	yum install net-tools
+	yum -y install net-tools
 }
 
 #预安装信息获取
