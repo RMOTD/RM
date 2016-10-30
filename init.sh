@@ -19,7 +19,12 @@ function net_tools(){
 
 #预安装信息获取
 function pre_install(){
-	read -p "set ssh_port as:" ssh_set_port           #输入要设置成的ssh端口
+	read -p "set ssh_port as(default:22):" set_port           #输入要设置成的ssh端口
+	if [ "$set_port" != "" ]; then
+		ssh_set_port=$set_port
+	else
+		ssh_set_port="22"
+	fi
 }
 
 #1.修改ssh端口
