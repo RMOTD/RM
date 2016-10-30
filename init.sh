@@ -29,7 +29,7 @@ function pre_install(){
 
 #1.修改ssh端口
 function ssh_port(){
-	sed -i 's/^Port.*$/Port $ssh_set_port/g' /etc/ssh/sshd_config          #端口替换
+	sed -i 's/^Port.*$/Port "$ssh_set_port"/g' /etc/ssh/sshd_config          #端口替换
 	systemctl restart sshd.service                                     #重启ssh服务
 	iptables -A INPUT -p tcp --dport $sh_set_port -j ACCEPT        #开放防火墙
 	service iptables save                                     #保存防火墙配置
