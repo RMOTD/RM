@@ -35,3 +35,7 @@ function set_go(){
 	sed -i '$a\export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' /etc/profile
 	source /etc/profile
 }
+
+root_only
+set_git
+set_go
