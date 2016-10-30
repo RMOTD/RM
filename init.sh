@@ -24,8 +24,7 @@ function pre_install(){
 
 #1.修改ssh端口
 function ssh_port(){
-	sh_set_port="netstat -ntlp|grep sshd |awk -F: '{if($4!="")print $4}'"       #获取当前ssh端口并输入到变量ssh_cur_port上
-	sed -i "s/Port $ssh_cur_port/Port $sh_set_port/g" /etc/ssh/sshd_config    #端口替换
+	sed -i 's/^Port.*$/Port $sh_set_port/g' /etc/ssh/sshd_config          #端口替换
 	systemctl restart sshd.service                                     #重启ssh服务
 	iptables -A INPUT -p tcp --dport $sh_set_port -j ACCEPT        #开放防火墙
 	service iptables save                                     #保存防火墙配置
@@ -136,7 +135,7 @@ function set_bashrc(){
 	# vim:ts=4:sw=4
 	
 	EOF
-	source /etc/bashrc
+	echo -e "输入 source /etc/bashrc 生效"
 }
 
 #主程序
