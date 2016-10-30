@@ -202,16 +202,16 @@ function leanote_backup(){
 #恢复:3
 function leanote_restore(){
 	ls
-	read -p "输入上面要恢复文件的文件名:" res_file
+	read -p "输入上面要恢复文件的文件名:" restore_file
 	
 	set_mongodb
-	
-	mkdir /root/_leanote
-	rm -rf /root/_leanote/*
-	cp -rf /root/leanote/* /root/_leanote
-	rm -rf /root/leanote
-	
-	tar -xzvf $res_file
+	if [ test -d /root/leanote/ ] ; then
+		mkdir /root/_leanote
+		rm -rf /root/_leanote/*
+		cp -rf /root/leanote/* /root/_leanote
+		rm -rf /root/leanote
+	fi
+	tar -xzvf $restore_file
 	mongorestore -h localhost -d leanote --drop --dir /root/leanote/mongodb_backup/leanote
 	
 	sed -i 's?sh /root/leanote/bin/run.sh &??g' /etc/rc.d/rc.local
