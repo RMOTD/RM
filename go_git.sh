@@ -39,5 +39,3 @@ function set_go(){
 root_only
 set_git
 set_go
-
-#111
