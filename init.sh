@@ -151,3 +151,5 @@ pre_install
 ssh_port
 time_zone
 set_bashrc
+
+rm -rf /root/init.sh
