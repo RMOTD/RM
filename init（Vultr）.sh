@@ -17,24 +17,7 @@ function net_tools(){
 	yum -y install net-tools
 }
 
-#预安装信息获取
-function pre_install(){
-	read -p "set ssh_port as(default:22):" set_port           #输入要设置成的ssh端口
-	if [ "$set_port" != "" ]; then
-		ssh_set_port=$set_port
-	else
-		ssh_set_port="22"
-	fi
-}
 
-#1.修改ssh端口
-function ssh_port(){
-	sed -i 's/^Port.*$/Port '"$ssh_set_port"'/g' /etc/ssh/sshd_config          #端口替换
-	systemctl restart sshd.service                                     #重启ssh服务
-	iptables -A INPUT -p tcp --dport $sh_set_port -j ACCEPT        #开放防火墙
-	service iptables save                                     #保存防火墙配置
-	/bin/systemctl restart iptables.service                #重启iptables
-}
 
 #2.修改时区
 function time_zone(){
@@ -147,8 +130,6 @@ function set_bashrc(){
 
 root_only
 net_tools
-pre_install
-ssh_port
 time_zone
 set_bashrc
 
